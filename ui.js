@@ -56,10 +56,15 @@ export function buildH2HTable(TEAMS, currentData) {
                 cell.innerHTML = "<span class='diagonal-text'>-</span>";
                 cell.classList.add('diagonal');
             } else if (result === null) {
-                cell.textContent = "?"; cell.classList.add('unplayed');
+                cell.textContent = "?";
+                cell.classList.add('unplayed');
             } else {
-                if (result === "1-0") { cell.innerHTML = "<span>W</span>"; cell.classList.add('win'); }
-                else if (result === "0-1") { cell.innerHTML = "<span>L</span>"; cell.classList.add('loss'); }
+                // Handle aggregate results like '2-0','1-1','0-2'
+                const [w, l] = result.split('-').map(Number);
+                cell.textContent = result;
+                if (w > l) cell.classList.add('win');
+                else if (w < l) cell.classList.add('loss');
+                else cell.classList.add('draw');
             }
             row.appendChild(cell);
         });
