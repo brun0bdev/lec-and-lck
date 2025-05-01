@@ -4,7 +4,7 @@ import {
     buildH2HTable, displayCurrentStandings, displayUnplayedMatches, 
     createStandingsChart, displayTextResults, loadSavedScenariosList,
     translateStaticElements
- } from './ui.js';
+ } from 'ui.js';
 
 // Calcular clasificación
 export function calculateStandings(TEAMS, currentData) {
