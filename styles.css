@@ -1,0 +1,1124 @@
+/* Variables y estilos generales */
+:root {
+    /* Nueva paleta tipo Discord pero más elegante */
+    --primary: #36393f;
+    --secondary: #2f3136;
+    --darker: #202225;
+    --accent: #7289da;
+    --accent-secondary: #5865f2;
+    --accent-tertiary: #738adb;
+    --text: #f0f5fa; /* Texto principal más claro para mejor contraste */
+    --text-alt: #b9bbbe; /* Color de texto secundario */
+    --text-muted: #72767d; /* Color para texto menos importante */
+    --background: #2f3136;
+    --table-header: #202225;
+    --win: #43b581;
+    --win-light: rgba(43, 181, 129, 0.15);
+    --loss: #f04747;
+    --loss-light: rgba(240, 71, 71, 0.15);
+    --unplayed: #72767d;
+    --separator: rgba(79, 84, 92, 0.48);
+    
+    /* Gradientes especiales */
+    --gradient-header: linear-gradient(135deg, #36393f, #2f3136);
+    --gradient-accent: linear-gradient(135deg, #7289da, #5865f2);
+    --gradient-card: linear-gradient(145deg, rgba(47, 49, 54, 0.8), rgba(54, 57, 63, 0.9));
+    --gradient-footer: linear-gradient(to top, #202225, #2f3136);
+    
+    /* Sombras */
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+    --shadow-inset: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    /* Alto contraste */
+    --high-contrast-primary: #000000;
+    --high-contrast-secondary: #ffffff;
+    --high-contrast-accent: #ffff00;
+    --high-contrast-text: #ffffff;
+    --high-contrast-background: #000000;
+    --high-contrast-win: #00ff00;
+    --high-contrast-loss: #ff0000;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text);
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+    background-image: radial-gradient(circle at top, rgba(67, 67, 80, 0.2) 0%, transparent 70%), 
+                      radial-gradient(circle at bottom, rgba(32, 34, 37, 0.6) 0%, transparent 100%);
+    background-attachment: fixed;
+}
+
+body.high-contrast {
+    color: var(--high-contrast-text);
+    background-color: var(--high-contrast-background);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--gradient-card);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(79, 84, 92, 0.2);
+}
+
+/* Encabezado */
+header {
+    position: relative; /* para posicionar controles-top */
+    background: var(--gradient-header);
+    color: white;
+    padding: 1rem;
+    box-shadow: 0 1px 0 rgba(4,4,5,0.2),0 1.5px 0 rgba(6,6,7,0.05),0 2px 0 rgba(4,4,5,0.05);
+    border-bottom: 1px solid var(--separator);
+    margin-bottom: 2rem;
+    text-align: center; /* Centrar el contenido del header */
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--text);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.controls-top {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.language-switch {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.language-switch img {
+    width: 20px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.language-switch img:hover {
+    transform: scale(1.2);
+}
+
+/* Modernizar switch de idioma */
+.switch-lang {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+.switch-lang input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider-lang {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ddd;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    transition: background 0.3s;
+}
+.slider-lang:before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    top: 2px;
+    left: 2px;
+    border-radius: 50%;
+    background-image: url('https://flagcdn.com/24x18/es.png');
+    background-size: cover;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s, background-image 0.3s;
+}
+.switch-lang input:checked + .slider-lang {
+    background: #4a4a4a;
+}
+.switch-lang input:checked + .slider-lang:before {
+    transform: translateX(30px);
+    background-image: url('https://flagcdn.com/24x18/gb.png');
+}
+
+/* Secciones */
+section {
+    margin-bottom: 2rem;
+    background: linear-gradient(145deg, var(--secondary), var(--primary));
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(79, 84, 92, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-accent);
+    opacity: 0.7;
+}
+
+section h2 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    position: relative;
+    display: inline-block;
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-accent);
+    border-radius: 3px;
+}
+
+body.high-contrast section {
+    background: var(--high-contrast-primary);
+    border: 2px solid var(--high-contrast-secondary);
+}
+
+/* Estilo especial para los h2 (en lugar del degradado de texto) */
+h1, h2, h3 {
+    color: var(--accent);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Tabla de H2H y Clasificación Actual */
+.table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    background-color: var(--darker);
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0.95em;
+}
+
+th, td {
+    padding: 12px 8px;
+    text-align: center;
+    border: none;
+    position: relative;
+    color: var(--text);
+}
+
+tr {
+    transition: background-color 0.2s;
+}
+
+tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+thead tr {
+    background-color: var(--darker);
+    color: var(--text);
+}
+
+th {
+    background-color: var(--table-header);
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(114, 137, 218, 0.3);
+}
+
+tbody tr:not(:last-child) {
+    border-bottom: 1px solid rgba(79, 84, 92, 0.2);
+}
+
+/* Colores de texto alternativos */
+p, td, th span, .team-name, .match-header {
+    color: var(--text-alt);
+}
+
+/* Tabla head-to-head específica */
+#h2h-table th:first-child {
+    background-color: var(--darker); 
+    color: var(--accent);
+}
+
+#h2h-table th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: var(--darker);
+    color: var(--accent);
+}
+
+#h2h-table th:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 10;
+}
+
+.win {
+    background-color: rgba(67, 181, 129, 0.15);
+    color: #43b581;
+    font-weight: bold;
+}
+
+.loss {
+    background-color: rgba(240, 71, 71, 0.15);
+    color: #f04747;
+    font-weight: bold;
+}
+
+.unplayed {
+    background-color: rgba(114, 118, 125, 0.1);
+    color: var(--text-alt);
+    font-style: italic;
+}
+
+.diagonal {
+    background-color: var(--darker);
+}
+
+/* Clasificación actual */
+#current-standings-table {
+    margin-top: 15px;
+}
+
+#current-standings-table table {
+    box-shadow: var(--shadow-md);
+}
+
+#current-standings-table tr.playoff-team {
+    background-color: rgba(67, 181, 129, 0.05);
+    border-left: 3px solid var(--win);
+}
+
+#current-standings-table tr.playoff-team:hover {
+    background-color: rgba(67, 181, 129, 0.1);
+}
+
+#current-standings-table tr:not(.playoff-team) {
+    border-left: 3px solid transparent;
+}
+
+#current-standings-table tr:nth-child(7) {
+    border-top: 2px dashed rgba(79, 84, 92, 0.4);
+}
+
+#current-standings-table td:nth-child(3),
+#current-standings-table th:nth-child(3) {
+    color: var(--win);
+    font-weight: bold;
+}
+
+#current-standings-table td:nth-child(4),
+#current-standings-table th:nth-child(4) {
+    color: var(--loss);
+    font-weight: bold;
+}
+
+#current-standings-table td:nth-child(1) {
+    font-weight: bold;
+    width: 40px;
+}
+
+#current-standings-table td:nth-child(2) {
+    text-align: left;
+    padding-left: 15px;
+}
+
+/* Mejoras para alto contraste */
+body.high-contrast table {
+    border: 1px solid var(--high-contrast-secondary);
+}
+
+body.high-contrast th {
+    background-color: var(--high-contrast-primary);
+    color: var(--high-contrast-secondary);
+    border-bottom: 1px solid var(--high-contrast-secondary);
+}
+
+body.high-contrast tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+body.high-contrast .diagonal {
+    background-color: var(--high-contrast-primary);
+    border: 1px dashed var(--high-contrast-secondary);
+}
+
+body.high-contrast #h2h-table th:first-child {
+    background-color: var(--high-contrast-primary);
+    border-right: 1px solid var(--high-contrast-secondary);
+}
+
+body.high-contrast #current-standings-table tr.playoff-team {
+    background-color: rgba(0, 255, 0, 0.05);
+    border-left: 3px solid var(--high-contrast-win);
+}
+
+body.high-contrast #current-standings-table tr:nth-child(7) {
+    border-top: 2px dashed var(--high-contrast-secondary);
+}
+/* Partidos pendientes */
+#unplayed-matches {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.match-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    background: linear-gradient(145deg, var(--secondary), var(--primary));
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(79, 84, 92, 0.2);
+    margin-bottom: 15px;
+}
+
+body.high-contrast .match-item {
+    background: var(--high-contrast-primary);
+    border: 1px solid var(--high-contrast-secondary);
+}
+
+.match-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.week-header {
+    font-size: 1.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 25px 0 15px 0;
+    padding: 10px;
+    color: var(--accent);
+    text-align: center;
+    position: relative;
+    letter-spacing: 1.5px;
+}
+
+.week-header:before, 
+.week-header:after {
+    content: '';
+    position: absolute;
+    height: 1px;
+    border-bottom: 1px solid var(--separator);
+    top: 50%;
+    width: 20%;
+}
+
+.week-header:before {
+    right: 75%;
+}
+
+.week-header:after {
+    left: 75%;
+}
+
+body.high-contrast .week-header {
+    color: var(--high-contrast-accent);
+    border-bottom-color: var(--high-contrast-secondary);
+}
+
+.match-header {
+    font-weight: 500;
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+}
+
+body.high-contrast .match-header {
+    color: var(--high-contrast-secondary);
+}
+
+.match-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.team-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 120px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+    background-color: var(--darker);
+    border-bottom-width: 3px;
+    border-bottom-style: solid;
+    box-shadow: var(--shadow-sm);
+}
+
+.team-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+    transition: transform 0.3s;
+}
+
+.team-name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9em;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: color 0.3s;
+}
+
+.vs-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-accent);
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 0.9em;
+    box-shadow: var(--shadow-sm);
+    margin: 0 10px;
+}
+
+body.high-contrast .vs-badge {
+    background-color: var(--high-contrast-secondary);
+    color: var(--high-contrast-primary);
+}
+
+/* Efecto al seleccionar equipo */
+.team-card:hover {
+    background-color: rgba(79, 84, 92, 0.2);
+    transform: translateY(-3px);
+}
+
+.team-card:hover .team-logo {
+    transform: scale(1.1);
+}
+
+.team-winner {
+    background-color: var(--win-light);
+    box-shadow: 0 0 0 2px var(--win);
+    transform: translateY(-3px);
+}
+
+.team-loser {
+    opacity: 0.7;
+    filter: grayscale(50%);
+}
+
+/* Paleta de colores para equipos */
+.team-fnatic { border-bottom: 3px solid #FF5500; }
+.team-g2 { border-bottom: 3px solid #1E1E1E; }
+.team-giantx { border-bottom: 3px solid #DB00CD; }
+.team-kcorp { border-bottom: 3px solid #0051DB; }
+.team-koi { border-bottom: 3px solid #5F259F; }
+.team-rogue { border-bottom: 3px solid #1F8ECD; }
+.team-sk { border-bottom: 3px solid #0C223F; }
+.team-bds { border-bottom: 3px solid #E0115F; }
+.team-heretics { border-bottom: 3px solid #808080; }
+.team-vitality { border-bottom: 3px solid #FFED00; }
+
+.match-item .team-card.team-g2 .team-name,
+.match-item .team-card.team-sk .team-name {
+    color: #ffffff !important;
+}
+/* Controles */
+#controls {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    padding: 20px 0;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+button {
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+}
+
+#calculate-btn {
+    background: var(--gradient-accent);
+    color: white;
+}
+
+#export-csv-btn {
+    background: linear-gradient(135deg, #43b581, #2e7d32);
+    color: white;
+}
+
+#reset-btn {
+    background: linear-gradient(135deg, #f04747, #d32f2f);
+    color: white;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: var(--shadow-sm);
+}
+
+/* Efecto de onda al hacer clic */
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.6s ease-out, opacity 0.6s ease;
+    opacity: 0;
+    pointer-events: none;
+}
+
+button:hover::after {
+    transform: translate(-50%, -50%) scale(20);
+    opacity: 1;
+}
+
+body.high-contrast button {
+    border: 2px solid var(--high-contrast-secondary);
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 1rem;
+    }
+    
+    #controls {
+        flex-direction: column;
+    }
+    
+    .match-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .team-selection {
+        margin-left: 0;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .container {
+        padding: 15px 10px;
+    }
+    
+    #controls .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    .match-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .vs-badge {
+        margin: 10px 0;
+    }
+    
+    .team-card {
+        width: 100%;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 10px;
+    }
+    
+    .team-logo {
+        margin-right: 10px;
+        margin-bottom: 0;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .standings-item {
+        flex-wrap: wrap;
+    }
+    
+    .standings-status {
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+    }
+}
+
+/* Sección de resultados (inicialmente oculta) */
+#results {
+    display: none; /* Inicialmente oculto */
+    transition: opacity 0.5s ease;
+    opacity: 0;
+}
+
+#results.visible {
+    display: block;
+    opacity: 1;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Resultados */
+#chart-container {
+    height: 400px;
+    margin: 30px 0;
+    background-color: var(--darker);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(79, 84, 92, 0.2);
+    position: relative;
+}
+
+.cutoff-label {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    background: rgba(54, 57, 63, 0.9);
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-sm);
+    color: var(--accent);
+    font-weight: bold;
+    border: 1px solid var(--accent-secondary);
+}
+
+/* Estilos para la Clasificación Final Proyectada */
+#text-results h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    /* Encabezado con degradado para resaltar */
+    background: linear-gradient(135deg, var(--accent), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6em;
+    position: relative;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+#text-results h3:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 3px;
+    background: linear-gradient(to right, var(--secondary), var(--accent));
+    border-radius: 3px;
+}
+
+.standings-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.standings-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(79, 84, 92, 0.2);
+}
+
+.standings-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    background: linear-gradient(145deg, rgba(47, 49, 54, 0.9), rgba(54, 57, 63, 1));
+}
+
+.standings-item.playoff {
+    border-left: 4px solid var(--win);
+}
+
+.standings-item.eliminated {
+    border-left: 4px solid var(--loss);
+}
+
+.team-position {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--darker);
+    color: white;
+    font-weight: bold;
+    margin-right: 20px;
+    font-size: 1em;
+    box-shadow: var(--shadow-sm);
+}
+
+.standings-team-name {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    color: var(--text);
+}
+
+.team-mini-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.team-mini-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+}
+
+.standings-wins {
+    font-weight: 600;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    font-size: 1.05em;
+}
+
+.wins-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+    color: #333;
+    min-width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    margin-left: 8px;
+    font-size: 0.95em;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.standings-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border-radius: 20px;
+    padding: 5px 15px;
+    min-width: 100px;
+    text-align: center;
+}
+
+.status-playoff {
+    color: var(--win);
+    background-color: var(--win-light);
+    border: 1px solid rgba(67, 181, 129, 0.3);
+}
+
+.status-eliminated {
+    color: var(--loss);
+    background-color: var(--loss-light);
+    border: 1px solid rgba(240, 71, 71, 0.3);
+}
+
+.playoff-cutoff {
+    margin-top: 30px;
+    padding: 15px;
+    text-align: center;
+    background: linear-gradient(to right, var(--secondary), var(--primary), var(--secondary));
+    border-radius: 10px;
+    font-weight: 500;
+    position: relative;
+    border: 1px dashed var(--separator);
+    box-shadow: var(--shadow-inset);
+    color: var(--accent);
+}
+
+/* Footer */
+footer {
+    background: var(--darker); /* Color más oscuro del footer */
+    color: var(--text-alt);
+    padding: 3rem 1rem;
+    margin-top: 4rem;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.footer-logo {
+    flex: 0 0 180px;
+    text-align: center;
+}
+
+.lec-logo {
+    width: 140px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.lec-logo:hover {
+    transform: scale(1.05);
+}
+
+.footer-info {
+    flex: 1;
+    min-width: 300px;
+    text-align: center;
+}
+
+.footer-info p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+.footer-info .highlight {
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.footer-info .copyright {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+.footer-info .disclaimer {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+.footer-info a {
+    color: var(--accent-tertiary);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.footer-info a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex: 0 0 180px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: #1282a2;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Temas por liga */
+body.league-LEC header,
+body.league-LCK header {
+    background-color: var(--primary) !important;
+    background: none !important;
+}
+
+body.league-LEC footer,
+body.league-LCK footer {
+    background-color: var(--secondary) !important;
+    background: none !important;
+}
+
+/* Switch de liga */
+.league-switch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px auto 0;
+    font-weight: bold;
+    color: var(--text);
+    background-color: var(--darker);
+    padding: 8px 15px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-inset);
+    max-width: fit-content;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--primary);
+    transition: .4s;
+    border-radius: 30px;
+    border: 1px solid rgba(79, 84, 92, 0.5);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: var(--accent);
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.switch input:checked + .slider {
+    background-color: var(--primary);
+}
+
+.switch input:focus + .slider {
+    box-shadow: 0 0 2px var(--accent);
+}
+
+.switch input:checked + .slider:before {
+    transform: translateX(30px);
+}
+
+/* Animaciones y transiciones mejoradas */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
