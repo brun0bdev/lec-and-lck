@@ -1,20 +1,20 @@
-import { LEAGUE_DATA, TRANSLATIONS } from './data.js'; // Importar LEAGUE_DATA
+import { LEAGUE_DATA, TRANSLATIONS } from 'data.js'; 
 import {
     calculateStandings, setMatchResult, calculateProjection, exportToCSV,
     saveScenario, loadScenario, resetApp, loadLeagueData, translatePage
- } from './logic.js';
-import { loadSavedScenariosList } from './ui.js';
+ } from 'logic.js';
+import { loadSavedScenariosList } from 'ui.js';
 
 // --- Application State ---
 const state = {
     TEAMS: [],
-    H2H_DATA: {}, // Initial H2H data for the current league (for reset)
+    H2H_DATA: {}, 
     OFFICIAL_MATCHES: [],
     seasonName: '',
-    currentData: {}, // Current state of H2H data (mutable)
+    currentData: {},
     standings: {},
     chart: null,
-    currentLang: 'ES' // Default language
+    currentLang: 'ES'
 };
 
 // --- Initialization ---
@@ -87,8 +87,6 @@ function setupEventListeners(initialLeague) {
     // Scenario Buttons (guard for missing elements)
     document.getElementById('save-scenario-btn')?.addEventListener('click', () => saveScenario(state));
     document.getElementById('load-scenario-btn')?.addEventListener('click', () => loadScenario(state));
-
-    // Note: Click handlers for individual matches are added dynamically in ui.js/displayUnplayedMatches
 }
 
 // --- High Contrast (Example - if you have a button for it) ---
