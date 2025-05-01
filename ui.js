@@ -1,5 +1,5 @@
-import { getShortTeamName, t } from 'utils.js';
-import { TEAM_LOGOS, TEAM_COLORS, TEAM_CLASS, HIGH_CONTRAST_COLORS } from 'data.js';
+import { getShortTeamName, t } from './utils.js';
+import { TEAM_LOGOS, TEAM_COLORS, TEAM_CLASS, HIGH_CONTRAST_COLORS } from './data.js';
 
 export function buildH2HTable(TEAMS, currentData) {
     const table = document.getElementById('h2h-table');

@@ -1,10 +1,10 @@
-import { downloadCSV, t } from 'utils.js';
-import { LEAGUE_DATA, TRANSLATIONS } from 'data.js';
+import { downloadCSV, t } from './utils.js';
+import { LEAGUE_DATA, TRANSLATIONS } from './data.js';
 import {
     buildH2HTable, displayCurrentStandings, displayUnplayedMatches, 
     createStandingsChart, displayTextResults, loadSavedScenariosList,
     translateStaticElements
- } from 'ui.js';
+ } from './ui.js';
 
 // Calcular clasificación
 export function calculateStandings(TEAMS, currentData) {

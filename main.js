@@ -1,9 +1,9 @@
-import { LEAGUE_DATA, TRANSLATIONS } from 'data.js'; 
+import { LEAGUE_DATA, TRANSLATIONS } from './data.js'; 
 import {
     calculateStandings, setMatchResult, calculateProjection, exportToCSV,
     saveScenario, loadScenario, resetApp, loadLeagueData, translatePage
- } from 'logic.js';
-import { loadSavedScenariosList } from 'ui.js';
+} from './logic.js';
+import { loadSavedScenariosList } from './ui.js';
 
 // --- Application State ---
 const state = {
