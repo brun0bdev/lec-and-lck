@@ -145,7 +145,7 @@ header h1 {
     top: 2px;
     left: 2px;
     border-radius: 50%;
-    background-image: url('https://flagcdn.com/24x18/es.png');
+    background-image: url('https://flagcdn.com/w40/es.png');
     background-size: cover;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     transition: transform 0.3s, background-image 0.3s;
@@ -155,7 +155,7 @@ header h1 {
 }
 .switch-lang input:checked + .slider-lang:before {
     transform: translateX(30px);
-    background-image: url('https://flagcdn.com/24x18/gb.png');
+    background-image: url('https://flagcdn.com/w40/gb.png');
 }
 
 /* Secciones */
