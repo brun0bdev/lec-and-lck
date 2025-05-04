@@ -4,7 +4,7 @@ export const TEAMS_LEC = [
 ];
 export const H2H_DATA_LEC = {
     "Fnatic":        ["-","1-0","1-0","1-0","0-1","1-0","0-1","1-0",null,"1-0"],
-    "G2 Esports":    ["0-1","-","0-1",null,"1-0","1-0",null,"0-1","1-0",null],
+    "G2 Esports":    ["0-1","-","0-1",null,"1-0","1-0",null,"0-1","1-0","1-0"],
     "GIANTX":        ["0-1","1-0","-","0-1","0-1","1-0","0-1","1-0",null,"0-1"],
     "Karmine Corp":  ["0-1",null,"1-0","-","1-0","1-0","1-0","1-0","1-0",null],
     "Movistar KOI":  ["1-0","0-1","1-0","0-1","-",null,null,"1-0","1-0","0-1"],
@@ -12,12 +12,9 @@ export const H2H_DATA_LEC = {
     "SK Gaming":     ["1-0",null,"1-0","0-1",null,"0-1","-","0-1","0-1",null],
     "Team BDS":      ["0-1","1-0","0-1","0-1","0-1","1-0","1-0","-","0-1","0-1"],
     "Team Heretics": [null,"0-1",null,"0-1","0-1","1-0","1-0","1-0","-","1-0"],
-    "Team Vitality": ["0-1",null,"1-0",null,"1-0","0-1",null,"1-0","0-1","-"]
+    "Team Vitality": ["0-1","0-1","1-0",null,"1-0","0-1",null,"1-0","0-1","-"]
 };
 export const OFFICIAL_MATCHES_LEC = [
-  { week: '6', date: '2025-05-04', day: 'Sun', matches: [
-      { team1: 'G2 Esports', team2: 'Team Vitality', time: '19:00' }
-  ] },
   { week: '6', date: '2025-05-05', day: 'Mon', matches: [
       { team1: 'Team Heretics', team2: 'Fnatic', time: '17:00' },
       { team1: 'Movistar KOI', team2: 'SK Gaming', time: '19:00' }
