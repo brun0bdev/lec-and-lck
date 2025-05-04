@@ -3,24 +3,19 @@ export const TEAMS_LEC = [
     "Rogue","SK Gaming","Team BDS","Team Heretics","Team Vitality"
 ];
 export const H2H_DATA_LEC = {
-    "Fnatic":        ["-","1-0","1-0","1-0","0-1","1-0","0-1",null,null,"1-0"],
+    "Fnatic":        ["-","1-0","1-0","1-0","0-1","1-0","0-1","1-0",null,"1-0"],
     "G2 Esports":    ["0-1","-","0-1",null,"1-0","1-0",null,"0-1","1-0",null],
-    "GIANTX":        ["0-1","1-0","-","0-1","0-1","1-0","0-1",null,null,"0-1"],
-    "Karmine Corp":  ["0-1",null,"1-0","-","1-0",null,"1-0","1-0","1-0",null],
+    "GIANTX":        ["0-1","1-0","-","0-1","0-1","1-0","0-1","1-0",null,"0-1"],
+    "Karmine Corp":  ["0-1",null,"1-0","-","1-0","1-0","1-0","1-0","1-0",null],
     "Movistar KOI":  ["1-0","0-1","1-0","0-1","-",null,null,"1-0","1-0","0-1"],
-    "Rogue":         ["0-1","0-1","0-1",null,null,"-","1-0","0-1","0-1","1-0"],
+    "Rogue":         ["0-1","0-1","0-1","0-1",null,"-","1-0","0-1","0-1","1-0"],
     "SK Gaming":     ["1-0",null,"1-0","0-1",null,"0-1","-","0-1","0-1",null],
-    "Team BDS":      [null,"1-0",null,"0-1","0-1","1-0","1-0","-","0-1","0-1"],
+    "Team BDS":      ["0-1","1-0","0-1","0-1","0-1","1-0","1-0","-","0-1","0-1"],
     "Team Heretics": [null,"0-1",null,"0-1","0-1","1-0","1-0","1-0","-","1-0"],
     "Team Vitality": ["0-1",null,"1-0",null,"1-0","0-1",null,"1-0","0-1","-"]
 };
 export const OFFICIAL_MATCHES_LEC = [
-  { week: '6', date: '2025-05-03', day: 'Sat', matches: [
-      { team1: 'Fnatic', team2: 'Team BDS', time: '17:00' },
-      { team1: 'Karmine Corp', team2: 'Rogue', time: '19:00' }
-  ] },
   { week: '6', date: '2025-05-04', day: 'Sun', matches: [
-      { team1: 'GIANTX', team2: 'Team BDS', time: '17:00' },
       { team1: 'G2 Esports', team2: 'Team Vitality', time: '19:00' }
   ] },
   { week: '6', date: '2025-05-05', day: 'Mon', matches: [
@@ -48,7 +43,7 @@ export const TEAMS_LCK = [
 ];
 export const H2H_DATA_LCK = {
     "BNK FEARX":          ["-","1-0","0-1","1-0","0-1","0-1","0-1","0-1","1-0","1-0"],
-    "DN Freecs":          ["0-1","-","0-1","0-1","0-1","0-1","0-1","0-1","0-1",null],
+    "DN Freecs":          ["0-1","-","0-1","0-1","0-1","0-1","0-1","0-1","0-1","0-1"],
     "Dplus KIA":          ["1-0","1-0","-","1-0","0-1","0-1","1-0","0-1","1-0","0-1"],
     "DRX":                ["0-1","1-0","0-1","-","0-1","0-1","0-1","0-1","1-0","0-1"],
     "Gen.G":              ["1-0","1-0","1-0","1-0","-","1-0","1-0","1-0","1-0","1-0"],
@@ -56,21 +51,9 @@ export const H2H_DATA_LCK = {
     "KT Rolster":         ["1-0","1-0","0-1","1-0","0-1","0-1","-","0-1","0-1","0-1"],
     "Nongshim RedForce":  ["1-0","1-0","1-0","1-0","0-1","0-1","1-0","-","1-0","0-1"],
     "OKSavingsBank BRION":["0-1","1-0","0-1","0-1","0-1","0-1","1-0","0-1","-","1-0"],
-    "T1":                 ["0-1",null,"1-0","1-0","0-1","0-1","1-0","1-0","0-1","-"]
+    "T1":                 ["0-1","1-0","1-0","1-0","0-1","0-1","1-0","1-0","0-1","-"]
 };
 export const OFFICIAL_MATCHES_LCK = [
-    { week: '5', date: '2025-05-02', day: 'Fri', matches: [
-      { team1: 'T1', team2: 'DN Freecs', time: '10:00' },
-      { team1: 'Hanwha Life Esports', team2: 'Nongshim RedForce', time: '12:00' }
-  ] },
-  { week: '5', date: '2025-05-03', day: 'Sat', matches: [
-      { team1: 'Gen.G', team2: 'Dplus KIA', time: '08:00' },
-      { team1: 'DRX', team2: 'BNK FEARX', time: '10:00' }
-  ] },
-  { week: '5', date: '2025-05-04', day: 'Sun', matches: [
-      { team1: 'KT Rolster', team2: 'T1', time: '08:00' },
-      { team1: 'DN Freecs', team2: 'OKSavingsBank BRION', time: '10:00' }
-  ] }
 ];
 
 export const TEAM_COLORS = {
