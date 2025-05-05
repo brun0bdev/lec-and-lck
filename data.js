@@ -3,22 +3,18 @@ export const TEAMS_LEC = [
     "Rogue","SK Gaming","Team BDS","Team Heretics","Team Vitality"
 ];
 export const H2H_DATA_LEC = {
-    "Fnatic":        ["-","1-0","1-0","1-0","0-1","1-0","0-1","1-0",null,"1-0"],
+    "Fnatic":        ["-","1-0","1-0","1-0","0-1","1-0","0-1","1-0","1-0","1-0"],
     "G2 Esports":    ["0-1","-","0-1",null,"1-0","1-0",null,"0-1","1-0","1-0"],
     "GIANTX":        ["0-1","1-0","-","0-1","0-1","1-0","0-1","1-0",null,"0-1"],
     "Karmine Corp":  ["0-1",null,"1-0","-","1-0","1-0","1-0","1-0","1-0",null],
-    "Movistar KOI":  ["1-0","0-1","1-0","0-1","-",null,null,"1-0","1-0","0-1"],
+    "Movistar KOI":  ["1-0","0-1","1-0","0-1","-",null,"1-0","1-0","1-0","0-1"],
     "Rogue":         ["0-1","0-1","0-1","0-1",null,"-","1-0","0-1","0-1","1-0"],
-    "SK Gaming":     ["1-0",null,"1-0","0-1",null,"0-1","-","0-1","0-1",null],
+    "SK Gaming":     ["1-0",null,"1-0","0-1","0-1","0-1","-","0-1","0-1",null],
     "Team BDS":      ["0-1","1-0","0-1","0-1","0-1","1-0","1-0","-","0-1","0-1"],
-    "Team Heretics": [null,"0-1",null,"0-1","0-1","1-0","1-0","1-0","-","1-0"],
+    "Team Heretics": ["0-1","0-1",null,"0-1","0-1","1-0","1-0","1-0","-","1-0"],
     "Team Vitality": ["0-1","0-1","1-0",null,"1-0","0-1",null,"1-0","0-1","-"]
 };
-export const OFFICIAL_MATCHES_LEC = [
-  { week: '6', date: '2025-05-05', day: 'Mon', matches: [
-      { team1: 'Team Heretics', team2: 'Fnatic', time: '17:00' },
-      { team1: 'Movistar KOI', team2: 'SK Gaming', time: '19:00' }
-  ] },
+export const OFFICIAL_MATCHES_LEC = [ 
   { week: '7', date: '2025-05-10', day: 'Sat', matches: [
       { team1: 'G2 Esports', team2: 'SK Gaming', time: '17:00' },
       { team1: 'Karmine Corp', team2: 'Team Vitality', time: '19:00' }
