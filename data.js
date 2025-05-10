@@ -16,7 +16,6 @@ export const H2H_DATA_LEC = {
 };
 export const OFFICIAL_MATCHES_LEC = [ 
   { week: '7', date: '2025-05-10', day: 'Sat', matches: [
-      { team1: 'G2 Esports', team2: 'SK Gaming', time: '17:00' },
       { team1: 'Karmine Corp', team2: 'Team Vitality', time: '19:00' }
   ] },
   { week: '7', date: '2025-05-11', day: 'Sun', matches: [
