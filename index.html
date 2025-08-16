@@ -3,80 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LEC 2025 Spring - Proyección de Victorias</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.0.1/dist/chartjs-plugin-annotation.min.js"></script>
-    <script type="module" src="./main.js"></script>
+    <title>Reproductor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .player-container {
+            width: 80vw;
+            height: 45vw;
+            max-width: 1280px;
+            max-height: 720px;
+            min-width: 640px;
+            min-height: 360px;
+        }
+
+        /* Media queries para dispositivos móviles */
+        @media screen and (max-width: 768px) {
+            .player-container {
+                width: 95vw;
+                height: 53.4vw; /* 16:9 aspect ratio */
+                min-width: 320px;
+                min-height: 180px;
+                max-width: none;
+                max-height: none;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .player-container {
+                width: 98vw;
+                height: 55.1vw; /* 16:9 aspect ratio */
+                min-width: 280px;
+                min-height: 157px;
+            }
+        }
+
+        @media screen and (max-width: 320px) {
+            .player-container {
+                width: 100vw;
+                height: 56.25vw; /* 16:9 aspect ratio */
+                min-width: 280px;
+                min-height: 157px;
+            }
+        }
+
+        /* Para dispositivos en orientación horizontal */
+        @media screen and (max-width: 768px) and (orientation: landscape) {
+            body {
+                height: 100vh;
+                padding: 10px;
+            }
+            
+            .player-container {
+                width: 95vw;
+                height: 70vh;
+                max-height: 70vh;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1 data-i18n="headerTitle">LEC 2025 Spring - Proyección de Victorias</h1>
-        <div class="league-switch">
-            <span>LEC</span>
-            <label class="switch">
-                <input type="checkbox" id="league-switch">
-                <span class="slider round"></span>
-            </label>
-            <span>LCK</span>
-        </div>
-        <div class="controls-top">
-            <div class="language-switch">
-                <label class="switch-lang">
-                    <input type="checkbox" id="lang-switch">
-                    <span class="slider-lang round"></span>
-                </label>
-                
-            </div>
-        </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section id="current-standings">
-                <h2 data-i18n="currentStandingsTitle">Clasificación Actual</h2>
-                <div id="current-standings-table"></div>
-            </section>
-
-            <section id="matches">
-                <h2 data-i18n="matchesTitle">Partidos Pendientes</h2>
-                <div id="unplayed-matches"></div>
-            </section>
-
-            <section id="controls">
-                <div class="buttons">
-                    <button id="calculate-btn" data-i18n="calculateBtn">Calcular Proyección</button>
-                    <button id="export-csv-btn" data-i18n="exportCsvBtn">Exportar a CSV</button>
-                    <button id="reset-btn" data-i18n="resetBtn">Reiniciar</button>
-                </div>
-            </section>
-
-            <section id="results">
-                <h2 data-i18n="resultsTitle">Resultados Proyectados</h2>
-                <div id="chart-container">
-                    <canvas id="standings-chart"></canvas>
-                </div>
-                <div id="text-results" aria-live="polite">
-                </div>
-            </section>
-
-            <section id="h2h-data">
-                <h2 data-i18n="h2hTitle">Datos Head-to-Head</h2>
-                <div class="table-container">
-                    <table id="h2h-table">
-                    </table>
-                </div>
-            </section>
-        </div>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <p data-i18n="footerData">Basado en datos de la <span class="highlight">LEC 2025 Spring Split</span></p>
-                <p class="disclaimer" data-i18n="disclaimer">Esta aplicación no está afiliada oficialmente con Riot Games</p>
-            </div>
-        </div>
-    </footer>
+    <div class="player-container">
+        <script type='text/javascript'> width=1280, height=720, channel='ligaes1', g='1';</script>
+        <script type='text/javascript' src='https://new.allover.top/static/scripts/hucaster.js'></script>
+    </div>
 </body>
 </html>
